@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8093994471468536871}
   - component: {fileID: 2766930793845133991}
   - component: {fileID: 4624327119064737677}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,6 +114,7 @@ MonoBehaviour:
     moveRange: 5
     health: 1
     pointsValue: 10
+    respawnDelay: 3
   moveHorizontal: 0
   moveVertical: 0
   moveSpeed: 3
@@ -132,7 +133,7 @@ GameObject:
   - component: {fileID: 8792720222926070970}
   - component: {fileID: 4730993752485226767}
   - component: {fileID: 5302699048331511308}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +246,7 @@ GameObject:
   - component: {fileID: 8368230630107260170}
   - component: {fileID: 7975727249025341465}
   - component: {fileID: 305954737389024206}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +359,7 @@ GameObject:
   - component: {fileID: 4697122425335540197}
   - component: {fileID: 8658456023955276707}
   - component: {fileID: 2783012497412751464}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +472,7 @@ GameObject:
   - component: {fileID: 5968809872859785699}
   - component: {fileID: 3314452855664549568}
   - component: {fileID: 5170628498851939283}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +584,7 @@ GameObject:
   - component: {fileID: 5299943653464497345}
   - component: {fileID: 1009021280875575389}
   - component: {fileID: 7619324845319630385}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +696,7 @@ GameObject:
   - component: {fileID: 97301265041004814}
   - component: {fileID: 920762058788805924}
   - component: {fileID: 45568220333908605}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +808,7 @@ GameObject:
   - component: {fileID: 334232837115195766}
   - component: {fileID: 1402451430084025696}
   - component: {fileID: 4012375335769590686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sphere (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +921,7 @@ GameObject:
   - component: {fileID: 2356377040360330705}
   - component: {fileID: 3922426123230819007}
   - component: {fileID: 5201275719999381180}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class TargetSpawner : MonoBehaviour
@@ -19,10 +20,15 @@ public class TargetSpawner : MonoBehaviour
 
         public int health = 1;
         public int pointsValue = 10;
+
+        [Header("Respawn")]
+        public float respawnDelay = 3f;
     }
 
     public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
+
     private List<GameObject> spawnedTargets = new List<GameObject>();
+    private List<SpawnPoint> waitingRespawn = new List<SpawnPoint>();
 
     void Start()
     {
@@ -35,26 +41,33 @@ public class TargetSpawner : MonoBehaviour
 
         foreach (SpawnPoint point in spawnPoints)
         {
-            int currentCount = 0;
+            int currentCount = CountTargetsFromPoint(point);
 
-            foreach (GameObject target in spawnedTargets)
+            if (currentCount < point.quantity && !waitingRespawn.Contains(point))
             {
-                if (target != null)
-                {
-                    Target targetScript = target.GetComponent<Target>();
-
-                    if (targetScript != null && targetScript.spawnPoint == point)
-                    {
-                        currentCount++;
-                    }
-                }
-            }
-
-            if (currentCount < point.quantity)
-            {
-                SpawnTarget(point);
+                StartCoroutine(RespawnAfterDelay(point));
             }
         }
+    }
+
+    int CountTargetsFromPoint(SpawnPoint point)
+    {
+        int count = 0;
+
+        foreach (GameObject target in spawnedTargets)
+        {
+            if (target != null)
+            {
+                Target targetScript = target.GetComponent<Target>();
+
+                if (targetScript != null && targetScript.spawnPoint == point)
+                {
+                    count++;
+                }
+            }
+        }
+
+        return count;
     }
 
     void SpawnAllTargets()
@@ -66,6 +79,22 @@ public class TargetSpawner : MonoBehaviour
                 SpawnTarget(point);
             }
         }
+    }
+
+    IEnumerator RespawnAfterDelay(SpawnPoint point)
+    {
+        waitingRespawn.Add(point);
+
+        yield return new WaitForSeconds(point.respawnDelay);
+
+        int currentCount = CountTargetsFromPoint(point);
+
+        if (currentCount < point.quantity)
+        {
+            SpawnTarget(point);
+        }
+
+        waitingRespawn.Remove(point);
     }
 
     void SpawnTarget(SpawnPoint point)
